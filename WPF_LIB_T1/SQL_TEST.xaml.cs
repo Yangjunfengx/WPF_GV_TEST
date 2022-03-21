@@ -69,6 +69,12 @@ namespace WPF_LIB_T1
           
            var x = SQL.Save_data();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SQL.SQL_Read_DATA("SELECT * FROM  dbo.yang_test");
+            x1.DataContext = SQL.DataSetData.Tables[0];
+        }
     }
 
     public class CustomColumn : DataGridTextColumn

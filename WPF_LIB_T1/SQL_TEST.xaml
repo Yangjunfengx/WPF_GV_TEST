@@ -27,7 +27,11 @@
 
             </DataGrid>
         </Grid>
-        <Button Content="保存修改" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" RenderTransformOrigin="2.624,-1.117"  Height="57" Click="Button_Click" />
+        <StackPanel>
+            <Button Content="保存修改" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" RenderTransformOrigin="2.624,-1.117"  Height="57" Click="Button_Click" />
+            <Button Content="刷新" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" RenderTransformOrigin="2.624,-1.117"  Height="57" Click="Button_Click_1" />
+
+        </StackPanel>
 
     </StackPanel>
  

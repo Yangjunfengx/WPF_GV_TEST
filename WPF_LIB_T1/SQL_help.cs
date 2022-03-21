@@ -36,12 +36,12 @@ namespace WPF_LIB_T1
 
 public class SQL_help
 {
-
+    #region SQL配置
     public string Server_ip { get; set; }
     public string User_Name { get; set; }
     public string PassWord { get; set; }
     public string DataBase { get; set; }
-
+    #endregion
     public DataTable test { get; set; }
 
     public DataSet DataSetData { get; set; }
@@ -55,9 +55,9 @@ public class SQL_help
       /// </summary>
       public ObservableCollection<Table_Struct> table_Structs { get; set; }
       /// <summary>
-      /// 表数据
+      /// 表数据(已放弃)
       /// </summary>
-      public ObservableCollection<DataColumn> table_data { get; set; }
+      public ObservableCollection<DataColumn> Old_table_data { get; set; }
       /// <summary>
       /// 连接SQL数据库
       /// </summary>
@@ -77,7 +77,7 @@ public class SQL_help
           }
           Connection_State = SqlConnection.State;
           SQL_TABLE_EMU("Trace");
-          table_data = new ObservableCollection<DataColumn>();
+          Old_table_data = new ObservableCollection<DataColumn>();
           SQL_Read_DATA("SELECT * FROM  dbo.yang_test");
       }
       /// <summary>
@@ -116,23 +116,29 @@ public class SQL_help
 
       public void SQL_Read_DATA(String sql_cmd_read)
     {
-        var  dataTable = new DataTable();
-        Sqa = new SqlDataAdapter();
+        if(Sqa==null)
+        {
+            Sqa = new SqlDataAdapter();
+        }
         Sqa.SelectCommand = new SqlCommand(sql_cmd_read, this.SqlConnection);
-     
+        Builder_cmd?.RefreshSchema();
 
         if (SqlConnection?.State != ConnectionState.Open)
               SqlConnection.Open();
+
         DataSetData = new DataSet();
         Sqa.Fill(DataSetData);
-        Builder_cmd = new SqlCommandBuilder(Sqa);
+        if(Builder_cmd==null)
+        {
+            Builder_cmd = new SqlCommandBuilder(Sqa);
+        }
+   
       //  Builder_cmd.GetUpdateCommand();
 
 
         //test
         var XX = DataSetData.Tables[0].DefaultView;
-            test = DataSetData.Tables[0];
-            var xxxx = DataSetData.Tables[0].PrimaryKey;
+        var xxxx = DataSetData.Tables[0].PrimaryKey;
        //
       }
 
