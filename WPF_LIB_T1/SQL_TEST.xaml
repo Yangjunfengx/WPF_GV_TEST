@@ -7,8 +7,8 @@
              d:DesignHeight="450" d:DesignWidth="800" >
     <StackPanel Orientation="Horizontal">
         <Grid>
-            <DataGrid x:Name="x1" ItemsSource="{Binding}" AutoGeneratingColumn="x1_AutoGeneratingColumn" AutoGenerateColumns="True" CanUserDeleteRows="True" CanUserResizeColumns="True" ColumnWidth="150"
-                      Background="Red" AlternatingRowBackground="Red">
+            <DataGrid x:Name="x1" ItemsSource="{Binding}" AutoGeneratingColumn="x1_AutoGeneratingColumn" AutoGenerateColumns="True" CanUserDeleteRows="True" CanUserResizeColumns="True" 
+                      Background="#FF8D7F7F" AlternatingRowBackground="#FF00D1FF" RowBackground="Yellow">
 
                 <DataGrid.Columns >
                     <DataGridTemplateColumn>

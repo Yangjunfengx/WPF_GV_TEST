@@ -54,6 +54,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="map_test.xaml.cs">
+      <DependentUpon>map_test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyBoxControl.xaml.cs">
+      <DependentUpon>MyBoxControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -81,6 +87,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="map_test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SQL_TEST.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

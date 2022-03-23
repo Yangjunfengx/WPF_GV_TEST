@@ -23,6 +23,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+          //  T1.BoxName = "99";
         }
     }
 }
